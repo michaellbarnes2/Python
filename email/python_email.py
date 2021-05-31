@@ -6,8 +6,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 # Send the message via local SMTP server.
-s = smtplib.SMTP_SSL("smtp.gmail.com", 465)
-s.login("michaellbarnes2@gmail.com","LetMeIn!1")
+s = smtplib.SMTP_SSL(
 
 
 # me == my email address
@@ -28,7 +27,7 @@ html = """\
   <head></head>
   <body>
     <p>Backup report completed for AWS ecom
-       AWS backup report files are located: <a href="https://plexusww.sharepoint.com/sites/ITInfrastructure/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FITInfrastructure%2FShared%20Documents%2FSystems">link</a> 
+       AWS backup report files are located: <a href="ystems">link</a> 
     </p>
   </body>
 </html>
