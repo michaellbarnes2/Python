@@ -10,7 +10,7 @@ response = ec2client.describe_instances(Filters=custom_filter)
 for reservation in response["Reservations"]:
     for instance in reservation["Instances"]:
         # This sample print will output entire Dictionary object
-     #   print(instance)
+        #   print(instance)
         # This will print will output the value of the Dictionary key 'InstanceId'
         print(instance["InstanceId"])
         print(instance["PrivateIpAddress"])
