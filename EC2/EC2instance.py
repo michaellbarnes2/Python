@@ -42,7 +42,7 @@ teststr = (data['server']['volumes'])
 numofvolumes = len(teststr)
 
 
-# user data informatio is ran during instance launch
+# user data information is ran during instance launch installed during ec2
 userdata = '''#!/bin/bash
 sudo adduser user1
 sudo mkdir /home/user1/.ssh
