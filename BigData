@@ -1,1 +1,31 @@
 
+import polars as pl
+
+'''sample = pl.DataFrame({
+    "Name": ["Ava", "Ben", "Cora", "Dev", "Eli", "Fay", "Gus", "Hana"],
+    "Age":  [19, 34, 21, 27, 45, 18, 22, 31],
+    "City": ["Phoenix", "Tempe", "Mesa", "Phoenix", "Chandler", "Tempe", "Mesa", "Phoenix"],
+    "Spend": [42.5, 120.0, 15.75, 88.0, 230.1, 9.99, 61.2, 140.0],
+})
+sample.write_csv("large_dataset.csv")
+print(sample)'''
+
+
+# 1. Read your raw data from a CSV file
+df = pl.read_csv("large_dataset.csv")
+
+# 2. Perform a basic data filter or cleanup
+cleaned_df = df.filter(pl.col("Age") > 21)
+
+# 3. Save to a compressed Parquet file
+cleaned_df.write_parquet("optimized_output.parquet")
+
+
+# 4. Read it back later
+optimized_df = pl.read_parquet("optimized_output.parquet")
+
+
+print(cleaned_df)
+print(cleaned_df.head(10))   # first 10 rows
+print(cleaned_df.shape)      # (rows, columns)
+print(cleaned_df.describe()) # count, mean, min, max for each column
